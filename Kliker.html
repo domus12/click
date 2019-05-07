@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    
+    <style>
+    body {
+        width: 98%;
+        height: 98%;
+        background-image: url("scenery.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    img {
+        width: 10%;
+        height: 16%;
+    }
+
+    </style>
+
+<h2>
+    <img src="pasek.png" style="position: fixed; right: 28%; top: -2.61%; width: 36.6%; height: 10%;">
+</h2>
+<h1 style="position: fixed; right: 58.85%; top: -2.5%; font-size: 4vh;">0</h1>
+<h3 style="position: fixed; right: 52.34%; top: -3.8%; font-size:4vh;">0</h3>
+<h4 style="position: fixed; right: 45.6%; top: -5.1%; font-size:4vh;">0</h4>
+<h5 style="position: fixed; right: 39.84%; top: -6.4%; font-size:4vh;">0</h5>
+<h6 style="position: fixed; right: 32.76%; top: -9%; font-size:4vh;">0</h6>
+
+<a style="position: fixed; left: 23%; top: 75.5%; font-size:4vh;">level 1</a>
+
+</head>
+
+<script>
+
+let w1 = 1
+
+let wood = 0
+
+let minus = 7
+let mn = 1
+
+let skala = 20
+
+function drwal(){
+
+document.querySelector('div').outerHTML += '<img src="log.png" style="position: fixed; left: 12%; top: 66.8%">'
+document.querySelector('div').outerHTML += '<img src="up.png" style="width: 5%; height: 8%; position: fixed; left: 23%; top: 68%" onclick="up1()">'
+
+document.querySelector('div').outerHTML = '<div><img src="tenor.gif" style="position: fixed; left: 1%; top: 64%"></div>'
+
+wood += w1
+
+document.querySelector('h3').innerHTML = wood
+
+setTimeout(function(){
+  document.querySelector('div').outerHTML = '<div><img src="state.jpg" style="position: fixed; left: 1%; top: 64%" onclick="drwal()"></div>'
+} ,1)
+
+}
+
+function up1(){
+  if (wood >= skala){
+
+let wav = 66.8 - mn*minus
+
+document.querySelector('div').outerHTML += '<img src="log.png" style="position: fixed; left: 12%; top: ' + wav + '%">'
+
+
+wood -= skala
+document.querySelector('h3').innerHTML = wood
+w1 += 0.5
+
+
+
+skala += (20*mn)
+
+mn++
+
+document.querySelector('a').innerHTML = 'level ' + mn
+}
+}
+
+</script>
+
+<body>
+
+<div>
+
+    <img src="state.jpg" style="position: fixed; left: 1%; top: 64%" onclick="drwal()">
+    <img src="log.png" style="position: fixed; left: 12%; top: 66.8%">
+    <img src="up.png" style="width: 5%; height: 8%; position: fixed; left: 23%; top: 68%" onclick="up1()">
+
+</div>
+
+</body>
+
+</html>
